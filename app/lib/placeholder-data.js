@@ -70,6 +70,12 @@ const customers = [
     email: 'balazs@orban.com',
     image_url: '/customers/balazs-orban.png',
   },
+  {
+    id: '3f7b39b2-2a01-4f25-8f6b-d6910d7b14b9',
+    name: 'Valensia Elsa Kurnia',
+    email: '221711705@students.uajy.ac.id',
+    image_url: '/customers/balazs-orban.png',
+  },
 ];
 
 const invoices = [
@@ -163,6 +169,12 @@ const invoices = [
     status: 'paid',
     date: '2022-06-05',
   },
+  {
+    customer_id: customers[10].id,
+    amount: 1000,
+    status: 'paid',
+    date: '2022-06-05',
+  },
 ];
 
 const revenue = [
@@ -180,9 +192,20 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
+const reservation = [
+  {
+    customer_id: customers[10].id,
+    email : customers[10].email,
+    amount: invoices[15].amount,
+    date: invoices[15].date,
+    status: invoices[15].status,
+  },
+];
+
 module.exports = {
   users,
   customers,
   invoices,
   revenue,
+  reservation,
 };

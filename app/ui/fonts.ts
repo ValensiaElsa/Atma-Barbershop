@@ -1,10 +1,14 @@
-import { Anton, Kanit } from 'next/font/google';
+import { Anton, Kanit, Lusitana } from 'next/font/google';
  
 
 export const anton = Anton({ 
     weight: ['400'],
     subsets: ['latin'],});
 export const kanit = Kanit({
+    weight: ['400'],
+    subsets: ['latin'],
+  });
+  export const lusitana = Lusitana({
     weight: ['400'],
     subsets: ['latin'],
   });

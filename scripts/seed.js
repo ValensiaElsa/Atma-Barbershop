@@ -4,6 +4,7 @@ const {
   customers,
   revenue,
   users,
+  reservation,
 } = require('../app/lib/placeholder-data.js');
 const bcrypt = require('bcrypt');
 
@@ -19,7 +20,6 @@ async function seedUsers(client) {
         password TEXT NOT NULL
       );
     `;
-
     console.log(`Created "users" table`);
 
     // Insert data into the "users" table
@@ -160,6 +160,45 @@ async function seedRevenue(client) {
   }
 }
 
+async function seedReservation(client) {
+  try {
+    await client.sql`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`;
+    const createTable = await client.sql`
+    CREATE TABLE IF NOT EXISTS reservation (
+    id UUID DEFAULT uuid_generate_v4() PRIMARY KEY,
+    customer_id UUID NOT NULL,
+    email VARCHAR (255) NOT NULL,
+    amount INT NOT NULL,
+    date DATE NOT NULL,
+    status VARCHAR(255) NOT NULL
+  );
+`;
+
+    console.log(`Created "reservation" table`);
+
+    // Insert data into the "invoices" table
+    const insertedReservation = await Promise.all(
+      reservation.map(
+        (reservation) => client.sql`
+        INSERT INTO reservation (customer_id, email, amount, date, status)
+        VALUES (${reservation.customer_id}, ${reservation.email}, ${reservation.amount}, ${reservation.date}, ${reservation.status})
+        ON CONFLICT (id) DO NOTHING;
+      `,
+      ),
+    );
+
+    console.log(`Seeded ${insertedReservation.length} reservation`);
+
+    return {
+      createTable,
+      reservation: insertedReservation,
+    };
+  } catch (error) {
+    console.error('Error seeding reservation:', error);
+    throw error;
+  }
+}
+
 async function main() {
   const client = await db.connect();
 
@@ -167,6 +206,7 @@ async function main() {
   await seedCustomers(client);
   await seedInvoices(client);
   await seedRevenue(client);
+  await seedReservation(client);
 
   await client.end();
 }
