@@ -17,7 +17,6 @@ export default function Page() {
             <nav
                 className="fixed inset-x-0 top-0 z-10 w-full px-4 py-1 bg-transparent"
             >
-<<<<<<< HEAD
               <span>Login</span>
             </Link>
           </header>
@@ -41,34 +40,3 @@ export default function Page() {
     </main >
   );
 }
-=======
-                <div className="flex justify-between p-4">
-                    <div className={`${kanit.className}  flex  antialiased text-[2rem] leading-[3rem] font-bold text-black dark:text-white`}>
-                        <Image
-                            src="/home/logo_hero.png"
-                            width={35}
-                            height={35}
-                            className='mx-4'
-                            alt="Screenshots of the dashboard project showing desktop version"
-                        />
-                        Atma Barbershop
-                    </div>
-                    <div className="flex items-center space-x-4 text-lg font-semibold tracking-tight">
-                        <button
-                            className="px-6 py-2  text-black hidden md:block bg-white border border-black rounded-lg hover:bg-black hover:border hover:text-white dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black"
-                        >Login</button>
-                        <UserIcon className='w-[35px] h-[35px] text-white md:hidden'></UserIcon>
-
-                    </div>
-                </div>
-            </nav>
-
-            <div className='my-[200px] mx-[5%] absolute z-1'>
-                <h1  className={`${kanit.className} antialiased text-white text-[20px]`}> NPM Lengkap - Nama Lengkap</h1>
-                <h1  className={`${anton.className} antialiased text-white text-[60px]`}> Our Barbershop </h1>
-                <h1  className={`${anton.className} antialiased text-white text-[60px]`}> Admin Dashboard</h1>
-            </div>
-        </main>
-    );
-}
->>>>>>> 8ef7f95972a402d4c715c13de94ac53292d6c102
