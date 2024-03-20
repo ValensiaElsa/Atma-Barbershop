@@ -57,6 +57,7 @@ export async function fetchLatestInvoices() {
 }
 
 export async function fetchLatestReservations() {
+  unstable_noStore()
   try {
     const data = await sql<LatestReservationRaw>`
       SELECT reservations.amount, customers.name, customers.image_url, customers.email, reservations.id
