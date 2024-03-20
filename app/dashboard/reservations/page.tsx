@@ -1,3 +1,4 @@
+import ReservationsTable from '@/app/ui/reservations/table';
 export default function Page() {
   return (
     <main className="flex min-h-screen flex-col">
@@ -10,6 +11,7 @@ export default function Page() {
       <p>
         Valensia Elsa Kurnia
       </p>
+      <ReservationsTable query="2024-06-05" currentPage={1} />
     </main>
   );
 }
