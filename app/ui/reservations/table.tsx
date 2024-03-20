@@ -3,7 +3,6 @@ import { UpdateReservation, DeleteReservation } from '@/app/ui/reservations/butt
 import ReservationStatus from '@/app/ui/reservations/status';
 import { formatDateToLocal, formatCurrency } from '@/app/lib/utils';
 import { fetchFilteredReservations } from '@/app/lib/data';
-import { reservations } from '@/app/lib/placeholder-data';
 
 export default async function ReservationsTable({
   query,

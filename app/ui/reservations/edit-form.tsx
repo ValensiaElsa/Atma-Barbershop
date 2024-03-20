@@ -66,7 +66,7 @@ export default function EditReservationForm({
           </div>
         </div>
 
-        {/* Reservation Status */}
+        {/* Invoice Status */}
         <fieldset>
           <legend className="mb-2 block text-sm font-medium">
             Set the reservation status
