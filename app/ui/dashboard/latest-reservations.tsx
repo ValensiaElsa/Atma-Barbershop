@@ -4,9 +4,9 @@ import Image from 'next/image';
 import { lusitana } from '@/app/ui/fonts';
 import {LatestReservation} from '@/app/lib/definitions';
 export default async function LatestReservation({
-  latestReservation,
+  latestReservations,
 }: {
-  latestReservation: LatestReservation[];
+  latestReservations: LatestReservation[];
 }) {
   return (
     <div className="flex w-full flex-col md:col-span-4">
@@ -17,7 +17,7 @@ export default async function LatestReservation({
         {/* NOTE: comment in this code when you get to this point in the course */}
 
         <div className="bg-white px-6">
-          {latestReservation.map((reservation, i) => {
+          {latestReservations.map((reservation, i) => {
             return (
               <div
                 key={reservation.id}
