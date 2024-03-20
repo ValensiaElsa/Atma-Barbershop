@@ -192,7 +192,7 @@ const revenue = [
   { month: 'Dec', revenue: 4800 },
 ];
 
-const reservation = [
+const reservations = [
   {
     customer_id: customers[10].id,
     email : customers[10].email,
@@ -207,5 +207,5 @@ module.exports = {
   customers,
   invoices,
   revenue,
-  reservation,
+  reservations,
 };
