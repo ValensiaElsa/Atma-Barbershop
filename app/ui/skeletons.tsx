@@ -59,6 +59,21 @@ export function InvoiceSkeleton() {
   );
 }
 
+export function ReservationSkeleton() {
+  return (
+    <div className="flex flex-row items-center justify-between border-b border-gray-100 py-4">
+      <div className="flex items-center">
+        <div className="mr-2 h-8 w-8 rounded-full bg-gray-200" />
+        <div className="min-w-0">
+          <div className="h-5 w-40 rounded-md bg-gray-200" />
+          <div className="mt-2 h-4 w-12 rounded-md bg-gray-200" />
+        </div>
+      </div>
+      <div className="mt-2 h-4 w-12 rounded-md bg-gray-200" />
+    </div>
+  );
+}
+
 export function LatestInvoicesSkeleton() {
   return (
     <div
@@ -72,6 +87,29 @@ export function LatestInvoicesSkeleton() {
           <InvoiceSkeleton />
           <InvoiceSkeleton />
           <InvoiceSkeleton />
+          <div className="flex items-center pb-2 pt-6">
+            <div className="h-5 w-5 rounded-full bg-gray-200" />
+            <div className="ml-2 h-4 w-20 rounded-md bg-gray-200" />
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function LatestReservationsSkeleton() {
+  return (
+    <div
+      className={`${shimmer} relative flex w-full flex-col overflow-hidden md:col-span-4`}
+    >
+      <div className="mb-4 h-8 w-36 rounded-md bg-gray-100" />
+      <div className="flex grow flex-col justify-between rounded-xl bg-gray-100 p-4">
+        <div className="bg-white px-6">
+          <ReservationSkeleton />
+          <ReservationSkeleton />
+          <ReservationSkeleton />
+          <ReservationSkeleton />
+          <ReservationSkeleton />
           <div className="flex items-center pb-2 pt-6">
             <div className="h-5 w-5 rounded-full bg-gray-200" />
             <div className="ml-2 h-4 w-20 rounded-md bg-gray-200" />
@@ -163,6 +201,30 @@ export function InvoicesMobileSkeleton() {
   );
 }
 
+export function ReservationsMobileSkeleton() {
+  return (
+    <div className="mb-2 w-full rounded-md bg-white p-4">
+      <div className="flex items-center justify-between border-b border-gray-100 pb-8">
+        <div className="flex items-center">
+          <div className="mr-2 h-8 w-8 rounded-full bg-gray-100"></div>
+          <div className="h-6 w-16 rounded bg-gray-100"></div>
+        </div>
+        <div className="h-6 w-16 rounded bg-gray-100"></div>
+      </div>
+      <div className="flex w-full items-center justify-between pt-4">
+        <div>
+          <div className="h-6 w-16 rounded bg-gray-100"></div>
+          <div className="mt-2 h-6 w-24 rounded bg-gray-100"></div>
+        </div>
+        <div className="flex justify-end gap-2">
+          <div className="h-10 w-10 rounded bg-gray-100"></div>
+          <div className="h-10 w-10 rounded bg-gray-100"></div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function InvoicesTableSkeleton() {
   return (
     <div className="mt-6 flow-root">
@@ -213,6 +275,97 @@ export function InvoicesTableSkeleton() {
           </table>
         </div>
       </div>
+    </div>
+  );
+}
+
+export function TitleReservationsSkeleton() {
+  return (
+    <div className={`${shimmer} relative flex flex-col w-full overflow-hidden md:col-span-4`}>
+      <div className="mb-6 h-8 w-36 rounded-md bg-gray-100" />
+      </div>
+  );
+}
+
+export function SearchReservationsSkeleton() {
+  return (
+    <div className="relative flex flex-1 flex-shrink-0">
+      <span className="peer block w-full rounded-md border bg-gray-200 py-[20px] pl-10 text-sm outline-2 placeholder:text-gray-500"></span>
+    </div>
+  );
+}
+
+export function CreateReservationsSkeleton() {
+  return (
+    <div className="flex items-center justify-between gap-3">
+      <span className="flex h-10 items-center rounded-lg bg-gray-600 py-[21px] px-[93px] text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"></span>
+    </div>
+  );
+}
+
+export function ReservationsTableSkeleton() {
+  return (
+    <div className="mt-6 flow-root">
+      <div className="inline-block min-w-full align-middle">
+        <div className="rounded-lg bg-gray-50 p-2 md:pt-0">
+          <div className="md:hidden">
+            <ReservationsMobileSkeleton />
+            <ReservationsMobileSkeleton />
+            <ReservationsMobileSkeleton />
+            <ReservationsMobileSkeleton />
+            <ReservationsMobileSkeleton />
+            <ReservationsMobileSkeleton />
+          </div>
+          <table className="hidden min-w-full text-gray-900 md:table">
+            <thead className="rounded-lg text-left text-sm font-normal">
+              <tr>
+                <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
+                  Customer
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Email
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Amount
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Date
+                </th>
+                <th scope="col" className="px-3 py-5 font-medium">
+                  Status
+                </th>
+                <th
+                  scope="col"
+                  className="relative pb-4 pl-3 pr-6 pt-2 sm:pr-6"
+                >
+                  <span className="sr-only">Edit</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody className="bg-white">
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+              <TableRowSkeleton />
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export function ReservationsPageSkeleton() {
+  return (
+    <div>
+      <TitleReservationsSkeleton />
+      <div className="block w-full flex items-center justify-between gap-2 md:mt-8">
+      <SearchReservationsSkeleton />
+      <CreateReservationsSkeleton />
+      </div>
+      <ReservationsTableSkeleton />
     </div>
   );
 }

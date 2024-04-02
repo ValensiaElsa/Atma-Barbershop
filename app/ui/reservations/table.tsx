@@ -11,6 +11,7 @@ export default async function ReservationsTable({
   query: string;
   currentPage: number;
 }) {
+  await new Promise((resolve) => setTimeout(resolve, 3000));
   const reservations = await fetchFilteredReservations(query, currentPage);
 
   return (
