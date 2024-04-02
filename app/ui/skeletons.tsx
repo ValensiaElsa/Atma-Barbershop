@@ -281,9 +281,7 @@ export function InvoicesTableSkeleton() {
 
 export function TitleReservationsSkeleton() {
   return (
-    <div
-      className={`${shimmer} relative flex w-full flex-col overflow-hidden md:col-span-4`}
-    >
+    <div className={`${shimmer} relative flex flex-col w-full overflow-hidden md:col-span-4`}>
       <div className="mb-6 h-8 w-36 rounded-md bg-gray-100" />
       </div>
   );
@@ -291,16 +289,16 @@ export function TitleReservationsSkeleton() {
 
 export function SearchReservationsSkeleton() {
   return (
-    <div className="mt-8 flex items-center justify-between gap-3 md:mt-8">
-        <span className="peer block w-full rounded-md border bg-gray-200 py-[20px] px-[750px] pl-10 text-sm outline-2 placeholder:text-gray-500"></span>
-       </div>
+    <div className="relative flex flex-1 flex-shrink-0">
+      <span className="peer block w-full rounded-md border bg-gray-200 py-[20px] pl-10 text-sm outline-2 placeholder:text-gray-500"></span>
+    </div>
   );
 }
 
 export function CreateReservationsSkeleton() {
   return (
-    <div className="mt-8 flex items-center justify-between gap-3 md:mt-8">
-      <span className="flex h-10 items-center rounded-lg bg-gray-600 py-[20px] px-[100px] px-20 text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"></span>
+    <div className="flex items-center justify-between gap-3">
+      <span className="flex h-10 items-center rounded-lg bg-gray-600 py-[21px] px-[93px] text-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-600"></span>
     </div>
   );
 }
@@ -363,7 +361,7 @@ export function ReservationsPageSkeleton() {
   return (
     <div>
       <TitleReservationsSkeleton />
-      <div className="mt-4 block w-full flex items-center justify-between gap-2 md:mt-8">
+      <div className="block w-full flex items-center justify-between gap-2 md:mt-8">
       <SearchReservationsSkeleton />
       <CreateReservationsSkeleton />
       </div>

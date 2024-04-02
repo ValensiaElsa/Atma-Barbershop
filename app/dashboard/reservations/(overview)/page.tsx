@@ -1,13 +1,25 @@
 import ReservationsTable from '@/app/ui/reservations/table';
+import Pagination from '@/app/ui/invoices/pagination';
 import Search from '@/app/ui/search';
 import { lusitana } from '@/app/ui/fonts';
 import { CreateReservations } from '@/app/ui/reservations/buttons';
-import { fetchLatestReservations } from '@/app/lib/data';
+import { fetchLatestReservations, fetchReservationsPages } from '@/app/lib/data';
 import { Suspense } from 'react';
 import {ReservationsTableSkeleton, CreateReservationsSkeleton, SearchReservationsSkeleton} from '@/app/ui/skeletons';
 
-export default async function Page() {
+export default async function Page({
+  searchParams,
+}: {
+  searchParams?: {
+    query?: string;
+    page?: string;
+  };
+}) {
+  const query = searchParams?.query || '';
+  const currentPage = Number(searchParams?.page) || 1;
+  const totalPages = await fetchReservationsPages(query);
   const latestReservations = await fetchLatestReservations ();
+  
   return (
     <main className="flex min-h-screen flex-col">
       <p>
@@ -28,10 +40,10 @@ export default async function Page() {
           </Suspense>
       </div>
       <div className="mt-5 flex w-full justify-center">
-        {/* <Pagination totalPages={totalPages} /> */}
+        <Pagination totalPages={totalPages} />
       </div>
       <Suspense fallback={<ReservationsTableSkeleton />}>
-        <ReservationsTable query="" currentPage={1} />
+        <ReservationsTable query={query} currentPage={currentPage} />
         </Suspense>
     </main>
   );
