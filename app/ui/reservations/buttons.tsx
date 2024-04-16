@@ -1,5 +1,6 @@
 import { PencilIcon, PlusIcon, TrashIcon } from '@heroicons/react/24/outline';
 import Link from 'next/link';
+import { deleteReservation } from '@/app/lib/actions';
 
 export async function CreateReservations() {
   await new Promise((resolve) => setTimeout(resolve, 1500));
@@ -17,7 +18,7 @@ export async function CreateReservations() {
 export function UpdateReservation({ id }: { id: string }) {
   return (
     <Link
-      href="/dashboard/reservations"
+      href={`/dashboard/reservations/${id}/edit`}
       className="rounded-md border p-2 hover:bg-gray-100"
     >
       <PencilIcon className="w-5" />
@@ -26,13 +27,14 @@ export function UpdateReservation({ id }: { id: string }) {
 }
 
 export function DeleteReservation({ id }: { id: string }) {
+  const deleteReservationWithId = deleteReservation.bind(null, id);
   return (
-    <>
+    <form action={deleteReservationWithId}>
       <button className="rounded-md border p-2 hover:bg-gray-100">
         <span className="sr-only">Delete</span>
         <TrashIcon className="w-5" />
       </button>
-    </>
+    </form>
   );
 }
  

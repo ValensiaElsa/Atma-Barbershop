@@ -177,7 +177,7 @@ export async function fetchFilteredReservations(
         reservations.amount::text ILIKE ${`%${query}%`} OR
         reservations.date::text ILIKE ${`%${query}%`} OR
         reservations.status ILIKE ${`%${query}%`}
-      ORDER BY reservations.date DESC
+        ORDER BY reservations.updated_at DESC
       LIMIT ${ITEMS_PER_PAGE} OFFSET ${offset}
     `;
 
