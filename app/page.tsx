@@ -31,10 +31,13 @@ export default function Page() {
             Atma Barbershop
           </div>
           <div className="flex items-center space-x-4 text-lg font-semibold tracking-tight">
+          <Link
+            href="/login">
           <button
-    className="px-6 py-2 text-white hidden md:block bg-transparent border border-white rounded-lg hover:bg-white hover:text-black dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black"
->Login</button>
-
+    className="px-6 py-2 text-white hidden md:block bg-transparent border border-white rounded-lg hover:bg-white hover:text-black dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black">
+      Login
+      </button>
+      </Link>
             <UserIcon className='w-[35px] h-[35px] text-white md:hidden'></UserIcon>
 
           </div>

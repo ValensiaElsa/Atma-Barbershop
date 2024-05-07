@@ -6,6 +6,11 @@ import { CreateReservations } from '@/app/ui/reservations/buttons';
 import { fetchLatestReservations, fetchReservationsPages } from '@/app/lib/data';
 import { Suspense } from 'react';
 import {ReservationsTableSkeleton, CreateReservationsSkeleton, SearchReservationsSkeleton} from '@/app/ui/skeletons';
+import { Metadata } from 'next';
+ 
+export const metadata: Metadata = {
+  title: 'Reservations',
+};
 
 export default async function Page({
   searchParams,

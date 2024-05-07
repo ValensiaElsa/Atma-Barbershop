@@ -6,6 +6,11 @@ import { lusitana } from '@/app/ui/fonts';
 import { fetchCardData} from '@/app/lib/data';
 import { Suspense } from 'react';
 import { RevenueChartSkeleton, LatestInvoicesSkeleton,  CardsSkeleton, LatestReservationsSkeleton } from '@/app/ui/skeletons';
+import { Metadata } from 'next';
+ 
+export const metadata: Metadata = {
+  title: 'Dashboard',
+};
  
 export default async function Page() {
   const {
@@ -38,4 +43,3 @@ export default async function Page() {
     </main>
   );
 }
-// ghjg
